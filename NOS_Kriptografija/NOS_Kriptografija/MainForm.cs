@@ -41,7 +41,7 @@ namespace NOS_Kriptografija
             {
                 if (string.IsNullOrWhiteSpace(txtSymKeyPath.Text))
                 {
-                    MessageBox.Show("Odaberite datoteku za spremanje tajnog ključa.");
+                    MessageBox.Show("Odaberite datoteku za spremanje tajnog ključa.", "Upozorenje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
@@ -92,7 +92,7 @@ namespace NOS_Kriptografija
                 if (string.IsNullOrWhiteSpace(txtPublicKeyPath.Text) ||
                     string.IsNullOrWhiteSpace(txtPrivateKeyPath.Text))
                 {
-                    MessageBox.Show("Odaberite datoteke za javni i privatni ključ.");
+                    MessageBox.Show("Odaberite datoteke za javni i privatni ključ.", "Upozorenje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
@@ -124,7 +124,9 @@ namespace NOS_Kriptografija
         {
             using (var save = new SaveFileDialog())
             {
-                save.Filter = "All files (*.*)|*.*";
+                save.Filter = "Encrypted files (*.enc)|*.enc|Text files (*.txt)|*.txt|All files (*.*)|*.*";
+                save.FileName = "kriptirano_simetricno.enc";
+
                 if (save.ShowDialog() == DialogResult.OK)
                 {
                     txtSymOutputFile.Text = save.FileName;
@@ -214,7 +216,9 @@ namespace NOS_Kriptografija
         {
             using (var save = new SaveFileDialog())
             {
-                save.Filter = "All files (*.*)|*.*";
+                save.Filter = "Encrypted files (*.enc)|*.enc|Text files (*.txt)|*.txt|All files (*.*)|*.*";
+                save.FileName = "kriptirano_asimetricno.enc";
+
                 if (save.ShowDialog() == DialogResult.OK)
                 {
                     txtHybridOutputFile.Text = save.FileName;

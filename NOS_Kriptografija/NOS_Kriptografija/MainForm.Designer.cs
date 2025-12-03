@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.tabMain = new System.Windows.Forms.TabControl();
             this.tabKeys = new System.Windows.Forms.TabPage();
             this.lblHeading2 = new System.Windows.Forms.Label();
@@ -90,17 +91,7 @@
             this.lblInputFileHash = new System.Windows.Forms.Label();
             this.lblInputFileHashHeading = new System.Windows.Forms.Label();
             this.tabSignature = new System.Windows.Forms.TabPage();
-            this.btnSignBrowseInput = new System.Windows.Forms.Button();
-            this.txtSignInput = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.lblSignatureHeading = new System.Windows.Forms.Label();
-            this.btnSignBrowsePrivateKey = new System.Windows.Forms.Button();
-            this.txtSignPrivateKey = new System.Windows.Forms.TextBox();
-            this.lblPrivateKeyInput = new System.Windows.Forms.Label();
-            this.btnSignBrowseOutput = new System.Windows.Forms.Button();
-            this.txtSignOutput = new System.Windows.Forms.TextBox();
-            this.lblSignOutput = new System.Windows.Forms.Label();
-            this.btnSignFile = new System.Windows.Forms.Button();
+            this.btnVerifySignatureFile = new System.Windows.Forms.Button();
             this.btnVerifyBrowseSignature = new System.Windows.Forms.Button();
             this.txtVerifySignature = new System.Windows.Forms.TextBox();
             this.lblFileSignature = new System.Windows.Forms.Label();
@@ -111,7 +102,17 @@
             this.txtVerifyInput = new System.Windows.Forms.TextBox();
             this.lblOriginalFile = new System.Windows.Forms.Label();
             this.lblVerifyHeading = new System.Windows.Forms.Label();
-            this.btnVerifySignatureFile = new System.Windows.Forms.Button();
+            this.btnSignFile = new System.Windows.Forms.Button();
+            this.btnSignBrowseOutput = new System.Windows.Forms.Button();
+            this.txtSignOutput = new System.Windows.Forms.TextBox();
+            this.lblSignOutput = new System.Windows.Forms.Label();
+            this.btnSignBrowsePrivateKey = new System.Windows.Forms.Button();
+            this.txtSignPrivateKey = new System.Windows.Forms.TextBox();
+            this.lblPrivateKeyInput = new System.Windows.Forms.Label();
+            this.btnSignBrowseInput = new System.Windows.Forms.Button();
+            this.txtSignInput = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lblSignatureHeading = new System.Windows.Forms.Label();
             this.tabMain.SuspendLayout();
             this.tabKeys.SuspendLayout();
             this.tabSymmetric.SuspendLayout();
@@ -784,106 +785,15 @@
             this.tabSignature.Text = "Digitalni potpis";
             this.tabSignature.UseVisualStyleBackColor = true;
             // 
-            // btnSignBrowseInput
+            // btnVerifySignatureFile
             // 
-            this.btnSignBrowseInput.Location = new System.Drawing.Point(502, 106);
-            this.btnSignBrowseInput.Name = "btnSignBrowseInput";
-            this.btnSignBrowseInput.Size = new System.Drawing.Size(75, 23);
-            this.btnSignBrowseInput.TabIndex = 21;
-            this.btnSignBrowseInput.Text = "Odaberi...";
-            this.btnSignBrowseInput.UseVisualStyleBackColor = true;
-            this.btnSignBrowseInput.Click += new System.EventHandler(this.btnSignBrowseInput_Click);
-            // 
-            // txtSignInput
-            // 
-            this.txtSignInput.Location = new System.Drawing.Point(146, 106);
-            this.txtSignInput.Name = "txtSignInput";
-            this.txtSignInput.ReadOnly = true;
-            this.txtSignInput.Size = new System.Drawing.Size(350, 20);
-            this.txtSignInput.TabIndex = 20;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(52, 111);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(88, 13);
-            this.label2.TabIndex = 19;
-            this.label2.Text = "Ulazna datoteka:";
-            // 
-            // lblSignatureHeading
-            // 
-            this.lblSignatureHeading.AutoSize = true;
-            this.lblSignatureHeading.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblSignatureHeading.Location = new System.Drawing.Point(39, 61);
-            this.lblSignatureHeading.Name = "lblSignatureHeading";
-            this.lblSignatureHeading.Size = new System.Drawing.Size(181, 20);
-            this.lblSignatureHeading.TabIndex = 18;
-            this.lblSignatureHeading.Text = "Potpisivanje datoteke";
-            // 
-            // btnSignBrowsePrivateKey
-            // 
-            this.btnSignBrowsePrivateKey.Location = new System.Drawing.Point(502, 142);
-            this.btnSignBrowsePrivateKey.Name = "btnSignBrowsePrivateKey";
-            this.btnSignBrowsePrivateKey.Size = new System.Drawing.Size(75, 23);
-            this.btnSignBrowsePrivateKey.TabIndex = 24;
-            this.btnSignBrowsePrivateKey.Text = "Odaberi...";
-            this.btnSignBrowsePrivateKey.UseVisualStyleBackColor = true;
-            this.btnSignBrowsePrivateKey.Click += new System.EventHandler(this.btnSignBrowsePrivateKey_Click);
-            // 
-            // txtSignPrivateKey
-            // 
-            this.txtSignPrivateKey.Location = new System.Drawing.Point(146, 142);
-            this.txtSignPrivateKey.Name = "txtSignPrivateKey";
-            this.txtSignPrivateKey.ReadOnly = true;
-            this.txtSignPrivateKey.Size = new System.Drawing.Size(350, 20);
-            this.txtSignPrivateKey.TabIndex = 23;
-            // 
-            // lblPrivateKeyInput
-            // 
-            this.lblPrivateKeyInput.AutoSize = true;
-            this.lblPrivateKeyInput.Location = new System.Drawing.Point(39, 145);
-            this.lblPrivateKeyInput.Name = "lblPrivateKeyInput";
-            this.lblPrivateKeyInput.Size = new System.Drawing.Size(101, 13);
-            this.lblPrivateKeyInput.TabIndex = 22;
-            this.lblPrivateKeyInput.Text = "Privatni ključ (RSA):";
-            // 
-            // btnSignBrowseOutput
-            // 
-            this.btnSignBrowseOutput.Location = new System.Drawing.Point(502, 178);
-            this.btnSignBrowseOutput.Name = "btnSignBrowseOutput";
-            this.btnSignBrowseOutput.Size = new System.Drawing.Size(75, 23);
-            this.btnSignBrowseOutput.TabIndex = 27;
-            this.btnSignBrowseOutput.Text = "Odaberi...";
-            this.btnSignBrowseOutput.UseVisualStyleBackColor = true;
-            this.btnSignBrowseOutput.Click += new System.EventHandler(this.btnSignBrowseOutput_Click);
-            // 
-            // txtSignOutput
-            // 
-            this.txtSignOutput.Location = new System.Drawing.Point(146, 178);
-            this.txtSignOutput.Name = "txtSignOutput";
-            this.txtSignOutput.ReadOnly = true;
-            this.txtSignOutput.Size = new System.Drawing.Size(350, 20);
-            this.txtSignOutput.TabIndex = 26;
-            // 
-            // lblSignOutput
-            // 
-            this.lblSignOutput.AutoSize = true;
-            this.lblSignOutput.Location = new System.Drawing.Point(70, 183);
-            this.lblSignOutput.Name = "lblSignOutput";
-            this.lblSignOutput.Size = new System.Drawing.Size(70, 13);
-            this.lblSignOutput.TabIndex = 25;
-            this.lblSignOutput.Text = "Izlazni potpis:";
-            // 
-            // btnSignFile
-            // 
-            this.btnSignFile.Location = new System.Drawing.Point(290, 217);
-            this.btnSignFile.Name = "btnSignFile";
-            this.btnSignFile.Size = new System.Drawing.Size(75, 26);
-            this.btnSignFile.TabIndex = 28;
-            this.btnSignFile.Text = "Potpiši";
-            this.btnSignFile.UseVisualStyleBackColor = true;
-            this.btnSignFile.Click += new System.EventHandler(this.btnSignFile_Click);
+            this.btnVerifySignatureFile.Location = new System.Drawing.Point(281, 447);
+            this.btnVerifySignatureFile.Name = "btnVerifySignatureFile";
+            this.btnVerifySignatureFile.Size = new System.Drawing.Size(100, 26);
+            this.btnVerifySignatureFile.TabIndex = 39;
+            this.btnVerifySignatureFile.Text = "Provjeri potpis";
+            this.btnVerifySignatureFile.UseVisualStyleBackColor = true;
+            this.btnVerifySignatureFile.Click += new System.EventHandler(this.btnVerifySignatureFile_Click);
             // 
             // btnVerifyBrowseSignature
             // 
@@ -976,15 +886,106 @@
             this.lblVerifyHeading.TabIndex = 29;
             this.lblVerifyHeading.Text = "Provjera potpisa";
             // 
-            // btnVerifySignatureFile
+            // btnSignFile
             // 
-            this.btnVerifySignatureFile.Location = new System.Drawing.Point(281, 447);
-            this.btnVerifySignatureFile.Name = "btnVerifySignatureFile";
-            this.btnVerifySignatureFile.Size = new System.Drawing.Size(100, 26);
-            this.btnVerifySignatureFile.TabIndex = 39;
-            this.btnVerifySignatureFile.Text = "Provjeri potpis";
-            this.btnVerifySignatureFile.UseVisualStyleBackColor = true;
-            this.btnVerifySignatureFile.Click += new System.EventHandler(this.btnVerifySignatureFile_Click);
+            this.btnSignFile.Location = new System.Drawing.Point(290, 217);
+            this.btnSignFile.Name = "btnSignFile";
+            this.btnSignFile.Size = new System.Drawing.Size(75, 26);
+            this.btnSignFile.TabIndex = 28;
+            this.btnSignFile.Text = "Potpiši";
+            this.btnSignFile.UseVisualStyleBackColor = true;
+            this.btnSignFile.Click += new System.EventHandler(this.btnSignFile_Click);
+            // 
+            // btnSignBrowseOutput
+            // 
+            this.btnSignBrowseOutput.Location = new System.Drawing.Point(502, 178);
+            this.btnSignBrowseOutput.Name = "btnSignBrowseOutput";
+            this.btnSignBrowseOutput.Size = new System.Drawing.Size(75, 23);
+            this.btnSignBrowseOutput.TabIndex = 27;
+            this.btnSignBrowseOutput.Text = "Odaberi...";
+            this.btnSignBrowseOutput.UseVisualStyleBackColor = true;
+            this.btnSignBrowseOutput.Click += new System.EventHandler(this.btnSignBrowseOutput_Click);
+            // 
+            // txtSignOutput
+            // 
+            this.txtSignOutput.Location = new System.Drawing.Point(146, 178);
+            this.txtSignOutput.Name = "txtSignOutput";
+            this.txtSignOutput.ReadOnly = true;
+            this.txtSignOutput.Size = new System.Drawing.Size(350, 20);
+            this.txtSignOutput.TabIndex = 26;
+            // 
+            // lblSignOutput
+            // 
+            this.lblSignOutput.AutoSize = true;
+            this.lblSignOutput.Location = new System.Drawing.Point(70, 183);
+            this.lblSignOutput.Name = "lblSignOutput";
+            this.lblSignOutput.Size = new System.Drawing.Size(70, 13);
+            this.lblSignOutput.TabIndex = 25;
+            this.lblSignOutput.Text = "Izlazni potpis:";
+            // 
+            // btnSignBrowsePrivateKey
+            // 
+            this.btnSignBrowsePrivateKey.Location = new System.Drawing.Point(502, 142);
+            this.btnSignBrowsePrivateKey.Name = "btnSignBrowsePrivateKey";
+            this.btnSignBrowsePrivateKey.Size = new System.Drawing.Size(75, 23);
+            this.btnSignBrowsePrivateKey.TabIndex = 24;
+            this.btnSignBrowsePrivateKey.Text = "Odaberi...";
+            this.btnSignBrowsePrivateKey.UseVisualStyleBackColor = true;
+            this.btnSignBrowsePrivateKey.Click += new System.EventHandler(this.btnSignBrowsePrivateKey_Click);
+            // 
+            // txtSignPrivateKey
+            // 
+            this.txtSignPrivateKey.Location = new System.Drawing.Point(146, 142);
+            this.txtSignPrivateKey.Name = "txtSignPrivateKey";
+            this.txtSignPrivateKey.ReadOnly = true;
+            this.txtSignPrivateKey.Size = new System.Drawing.Size(350, 20);
+            this.txtSignPrivateKey.TabIndex = 23;
+            // 
+            // lblPrivateKeyInput
+            // 
+            this.lblPrivateKeyInput.AutoSize = true;
+            this.lblPrivateKeyInput.Location = new System.Drawing.Point(39, 145);
+            this.lblPrivateKeyInput.Name = "lblPrivateKeyInput";
+            this.lblPrivateKeyInput.Size = new System.Drawing.Size(101, 13);
+            this.lblPrivateKeyInput.TabIndex = 22;
+            this.lblPrivateKeyInput.Text = "Privatni ključ (RSA):";
+            // 
+            // btnSignBrowseInput
+            // 
+            this.btnSignBrowseInput.Location = new System.Drawing.Point(502, 106);
+            this.btnSignBrowseInput.Name = "btnSignBrowseInput";
+            this.btnSignBrowseInput.Size = new System.Drawing.Size(75, 23);
+            this.btnSignBrowseInput.TabIndex = 21;
+            this.btnSignBrowseInput.Text = "Odaberi...";
+            this.btnSignBrowseInput.UseVisualStyleBackColor = true;
+            this.btnSignBrowseInput.Click += new System.EventHandler(this.btnSignBrowseInput_Click);
+            // 
+            // txtSignInput
+            // 
+            this.txtSignInput.Location = new System.Drawing.Point(146, 106);
+            this.txtSignInput.Name = "txtSignInput";
+            this.txtSignInput.ReadOnly = true;
+            this.txtSignInput.Size = new System.Drawing.Size(350, 20);
+            this.txtSignInput.TabIndex = 20;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(52, 111);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(88, 13);
+            this.label2.TabIndex = 19;
+            this.label2.Text = "Ulazna datoteka:";
+            // 
+            // lblSignatureHeading
+            // 
+            this.lblSignatureHeading.AutoSize = true;
+            this.lblSignatureHeading.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblSignatureHeading.Location = new System.Drawing.Point(39, 61);
+            this.lblSignatureHeading.Name = "lblSignatureHeading";
+            this.lblSignatureHeading.Size = new System.Drawing.Size(181, 20);
+            this.lblSignatureHeading.TabIndex = 18;
+            this.lblSignatureHeading.Text = "Potpisivanje datoteke";
             // 
             // MainForm
             // 
@@ -993,6 +994,7 @@
             this.ClientSize = new System.Drawing.Size(884, 561);
             this.Controls.Add(this.tabMain);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
