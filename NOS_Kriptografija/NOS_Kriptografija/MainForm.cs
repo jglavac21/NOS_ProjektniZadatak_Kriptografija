@@ -357,5 +357,141 @@ namespace NOS_Kriptografija
                     "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void btnSignBrowseInput_Click(object sender, EventArgs e)
+        {
+            using (var open = new OpenFileDialog())
+            {
+                open.Filter = "All files (*.*)|*.*";
+                if (open.ShowDialog() == DialogResult.OK)
+                {
+                    txtSignInput.Text = open.FileName;
+                }
+            }
+        }
+
+        private void btnSignBrowsePrivateKey_Click(object sender, EventArgs e)
+        {
+            using (var open = new OpenFileDialog())
+            {
+                open.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
+                if (open.ShowDialog() == DialogResult.OK)
+                {
+                    txtSignPrivateKey.Text = open.FileName;
+                }
+            }
+        }
+
+        private void btnSignBrowseOutput_Click(object sender, EventArgs e)
+        {
+            using (var save = new SaveFileDialog())
+            {
+                save.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
+                save.FileName = "signature.txt";
+
+                if (save.ShowDialog() == DialogResult.OK)
+                {
+                    txtSignOutput.Text = save.FileName;
+                }
+            }
+        }
+
+        private void btnSignFile_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(txtSignInput.Text) ||
+                    string.IsNullOrWhiteSpace(txtSignPrivateKey.Text) ||
+                    string.IsNullOrWhiteSpace(txtSignOutput.Text))
+                {
+                    MessageBox.Show("Odaberite ulaznu datoteku, privatni ključ i izlaznu datoteku za potpis.",
+                        "Upozorenje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                _crypto.SignFile(
+                    txtSignInput.Text,
+                    txtSignPrivateKey.Text,
+                    txtSignOutput.Text
+                );
+
+                MessageBox.Show("Datoteka je uspješno potpisana.", "Info",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Greška pri potpisivanju:\n" + ex.Message,
+                    "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnVerifyBrowseInput_Click(object sender, EventArgs e)
+        {
+            using (var open = new OpenFileDialog())
+            {
+                open.Filter = "All files (*.*)|*.*";
+                if (open.ShowDialog() == DialogResult.OK)
+                {
+                    txtVerifyInput.Text = open.FileName;
+                }
+            }
+        }
+
+        private void btnVerifyBrowsePublicKey_Click(object sender, EventArgs e)
+        {
+            using (var open = new OpenFileDialog())
+            {
+                open.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
+                if (open.ShowDialog() == DialogResult.OK)
+                {
+                    txtVerifyPublicKey.Text = open.FileName;
+                }
+            }
+        }
+
+        private void btnVerifyBrowseSignature_Click(object sender, EventArgs e)
+        {
+            using (var open = new OpenFileDialog())
+            {
+                open.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
+                if (open.ShowDialog() == DialogResult.OK)
+                {
+                    txtVerifySignature.Text = open.FileName;
+                }
+            }
+        }
+
+        private void btnVerifySignatureFile_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(txtVerifyInput.Text) ||
+                    string.IsNullOrWhiteSpace(txtVerifyPublicKey.Text) ||
+                    string.IsNullOrWhiteSpace(txtVerifySignature.Text))
+                {
+                    MessageBox.Show("Odaberite originalnu datoteku, javni ključ i datoteku potpisa.",
+                        "Upozorenje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                bool valid = _crypto.VerifySignature(
+                    txtVerifyInput.Text,
+                    txtVerifyPublicKey.Text,
+                    txtVerifySignature.Text
+                );
+
+                if (valid)
+                    MessageBox.Show("Potpis je valjan.", "Info",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                else
+                    MessageBox.Show("Potpis NIJE valjan!", "Info",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Greška pri provjeri potpisa:\n" + ex.Message,
+                    "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }
